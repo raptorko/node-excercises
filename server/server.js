@@ -11,7 +11,18 @@ var io = socketIO(server);
 
 app.use(express.static(publicPath));
 
-io.on('connection', (socket) => {
+io.on('connection', function (socket) {
+
+    socket.emit('newMessage', {
+    from: 'trol',
+    text: 'trololololo',
+    createdAt: 1345
+  });
+
+  socket.on('createMessage', (message) => {
+    console.log('message is:', message);
+  })
+
   console.log('new user connected');
   socket.on('disconnect', () => {
     console.log('disconnected from the server');
@@ -19,7 +30,7 @@ io.on('connection', (socket) => {
 });
 
 
-server.listen(port, () => {
+server.listen(port, function () {
   console.log(`running on port ${port}`);
 });
 
