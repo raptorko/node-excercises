@@ -20,7 +20,7 @@ io.on('connection', function (socket) {
     console.log('message is:', message);
 
     io.emit('newMessage', generateMessage(message.from, message.text));
-    callback('this is from the server');
+    callback();
   });
   console.log('new user connected');
 
