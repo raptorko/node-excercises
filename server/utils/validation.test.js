@@ -1,4 +1,4 @@
-const expect = require('require');
+const expect = require('expect');
 
 //import isRealString
 const {isRealString} = require('./validation');
